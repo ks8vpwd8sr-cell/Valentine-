@@ -1,1 +1,78 @@
 https://yourusername.github.io/valentine
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: pink;
+      font-family: Arial;
+      overflow: hidden;
+    }
+    .card {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: float 4s linear infinite;
+    }
+    @keyframes float {
+      0% { bottom: -20px; opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Will you be my Valentine, NAME? ❤️</h1>
+  <button id="yes" onclick="alert('YAY! 💖🥰')">Yes</button>
+  <button id="no">No</button>
+</div>
+
+<script>
+  const no = document.getElementById("no");
+  no.onmouseover = () => {
+    no.style.left = Math.random() * 80 + "vw";
+    no.style.top = Math.random() * 80 + "vh";
+  };
+
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 4000);
+  }, 300);
+</script>
+
+</body>
+</html>
